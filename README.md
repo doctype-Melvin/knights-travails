@@ -20,3 +20,7 @@ to use CSS grid for this and of course, one can easily create an 8x8 chessboard 
 The problem I've faced with this approach was, that I couldn't figure out a practical way of
 assigning coordinates to the board's fields. 
 So I had to go back and create the board using a table element. 
+
+#### Origin of the board
+I had to start the loop with a negative integer and turn it into an absolute value later on. This way I could preserve
+the logic of having the board's origin in the lower left hand corner, which translates to the coordinates [0,0].
