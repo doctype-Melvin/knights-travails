@@ -2,6 +2,9 @@
 This is another project from the Odin Project's JavaScript path.
 You can find the assignment [here](https://www.theodinproject.com/lessons/javascript-knights-travails)
 
+## Goal
+Find the shortest path between `Start` and `Target`
+
 ## Personal notes
 This project was to me the hardest since (badly) coding the ToDo app a couple months back. 
 In the weeks prior to this project, I went through all the info about 
