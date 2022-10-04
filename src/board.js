@@ -1,9 +1,9 @@
 export const Board = (()=>{
   const board = document.querySelector('.board')
   board.classList.add('board')
+  const table = document.createElement('table') // Table element
 
-  const makePattern = () => { // Fn creates checkerboard pattern
-    const table = document.createElement('table') // Table element
+  const makePattern = (() => { // Fn creates checkerboard pattern
     for (let i = -7; i < 1; i++) { // Create 8 rows from -7
       const row = document.createElement('tr')
       row.setAttribute('data-num', Math.abs(i)) // Set y coordinate
@@ -24,7 +24,13 @@ export const Board = (()=>{
       table.append(row)
     }
     board.append(table)
-  }
+  })()
+
+  const cells = document.querySelectorAll('.cell')
+  cells.forEach((cell) => cell.addEventListener('click', () => {
+    console.log(cell.dataset, 'Did it work')
+  }))
+
 
   return {
     board,
@@ -32,4 +38,7 @@ export const Board = (()=>{
   }
 })()
 
-Board.makePattern()
+// Board.makePattern()
+
+// const cells = document.querySelectorAll('.cell')
+// console.log(cells)
