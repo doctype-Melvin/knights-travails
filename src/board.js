@@ -26,15 +26,9 @@ export const Board = (()=>{
     board.append(table)
   })()
 
-  const cells = document.querySelectorAll('.cell')
-  cells.forEach((cell) => cell.addEventListener('click', () => {
-    console.log(cell.dataset)
-  }))
-
 
   return {
     board,
     makePattern,
-    cells,
   }
 })()

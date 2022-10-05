@@ -27,3 +27,8 @@ So I had to go back and create the board using a table element.
 #### Origin of the board
 I had to start the loop with a negative integer and turn it into an absolute value later on. This way I could preserve
 the logic of having the board's origin in the lower left hand corner, which translates to the coordinates [0,0].
+
+#### Resources
+[This video](https://www.youtube.com/watch?v=Y40bRyPQQr0&ab_channel=GeeksforGeeks) from the GeeksForGeeks YT channel
+helped me with tying together the knowledge from previous lessons with the current problem of the Knights Travails.
+It goes over the depth first traversal of a graph.
