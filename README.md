@@ -32,3 +32,4 @@ the logic of having the board's origin in the lower left hand corner, which tran
 [This video](https://www.youtube.com/watch?v=Y40bRyPQQr0&ab_channel=GeeksforGeeks) from the GeeksForGeeks YT channel
 helped me with tying together the knowledge from previous lessons with the current problem of the Knights Travails.
 It goes over the depth first traversal of a graph.
+[This article](https://www.digitalocean.com/community/tutorials/understanding-map-and-set-objects-in-javascript) explains the `Map()`-object. `Map()` is basically an object that stores key-value pairs in an array-type fashion (indexed list).
