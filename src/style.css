@@ -37,14 +37,3 @@ table {
 .black {
     background-color: black;
 }
-
-/* .cell:nth-child(16n + 2),
-.cell:nth-child(16n + 4),
-.cell:nth-child(16n + 6),
-.cell:nth-child(16n + 8),
-.cell:nth-child(16n + 9),
-.cell:nth-child(16n + 11),
-.cell:nth-child(16n + 13),
-.cell:nth-child(16n + 15) {
-    background-color: hotpink;
-} */
