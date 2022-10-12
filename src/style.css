@@ -26,3 +26,7 @@ body, html, .container {
 .cell {
     border: 1px solid black;
 }
+
+.cell:hover {
+    cursor: pointer;
+}

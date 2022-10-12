@@ -20,10 +20,16 @@ const cells = [...boardContainer.childNodes]
 cells.forEach((cell) => cell.classList.add('cell'))
 console.log(cells)
 
-const start = a[0][1]
-const end = a[2][2]
-console.log(start)
-const Q = []
-Q.push(start)
-console.log(Q)
+// Add event listener to board UI
+cells.forEach((cell) => cell.addEventListener('click', (e) => {
+  console.log(e.target)
+}))
+
+
+// const start = a[0][1]
+// const end = a[2][2]
+// console.log(start)
+// const Q = []
+// Q.push(start)
+// console.log(Q)
 
