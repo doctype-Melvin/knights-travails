@@ -8,7 +8,6 @@ const board = (N) => {
 }
 
 const a = board(8) // New board of size 8x8
-console.log(a)
 
 // Creates divs inside the board UI
 a.forEach((cell) => cell.forEach((node) => {
@@ -18,7 +17,6 @@ a.forEach((cell) => cell.forEach((node) => {
 // Adds classes to cells
 const cells = [...boardContainer.childNodes]
 cells.forEach((cell) => cell.classList.add('cell'))
-console.log(cells)
 
 // Add event listener to board UI
 cells.forEach((cell) => cell.addEventListener('click', (e) => {
@@ -29,7 +27,3 @@ cells.forEach((cell) => cell.addEventListener('click', (e) => {
 // const start = a[0][1]
 // const end = a[2][2]
 // console.log(start)
-// const Q = []
-// Q.push(start)
-// console.log(Q)
-
