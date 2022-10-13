@@ -1,7 +1,6 @@
 import './style.css'
 // Selects board container for UI
 const boardContainer = document.querySelector('.board')
-
 // Create N arrays of N length
 const board = (N) => {
   return [...Array(N)].map((node) => [...Array(N)].map((node) => null))
@@ -91,5 +90,5 @@ cells.forEach((cell) => cell.addEventListener('click', (e) => {
 }))
 
 const start = [0, 0]
-const target = [0, 4]
-console.log(knightMoves(start, target, 8))
+const target = [6, 1]
+console.log(knightMoves(start, target, 8*8))

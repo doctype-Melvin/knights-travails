@@ -12,6 +12,8 @@ Binary Search Trees, breadth-first-search, depth-first-search and level-order-tr
 It started off with linked lists, which was not too bad. But going into BST, I felt absolutely overwhelmed.
 Now, Knights Travails to me is another kind of beast. It took me days to comprehend what kind of problems I'd be 
 about to solve - and I'm not too sure if I genuinely did comprehend the scope of this project.
+I actually took some time off of coding to reset and refresh my upstairs department. 
+It really helped me with refocussing and approaching this problem with more mental capacities. 
 
 ## Approach
 This time I really needed some extra inspiration. I've resorted to looking up other people's code since
@@ -33,3 +35,5 @@ the logic of having the board's origin in the lower left hand corner, which tran
 helped me with tying together the knowledge from previous lessons with the current problem of the Knights Travails.
 It goes over the depth first traversal of a graph.
 [This article](https://www.digitalocean.com/community/tutorials/understanding-map-and-set-objects-in-javascript) explains the `Map()`-object. `Map()` is basically an object that stores key-value pairs in an array-type fashion (indexed list).
+I ended up studying [this solution](https://www.geeksforgeeks.org/minimum-steps-reach-target-knight/?ref=gcse) and rewire 
+it to fit my initial approach.
