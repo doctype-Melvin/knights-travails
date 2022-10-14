@@ -7,8 +7,12 @@ const Graph = (size) => {
 
   // Graph methods
   // addVertex(v)
-  const addVertex = (v) => {
-    list.set(v, [])
+  const addVertex = (size) => {
+    for (let x = 0; x < size; x++) {
+      for (let y = 0; y < size; y++) {
+        list.set([x, y], [])
+      }
+    }
   }
   // addEdge(v, w)
   const addEdge = (v, w) => {
@@ -38,14 +42,6 @@ const Graph = (size) => {
 }
 
 const test = Graph(8)
-const vertices = [0, 1, 2, 3, 4, 5, 6, 7]
-for (let i = 0; i < vertices.length; i++) {
-  test.addVertex(vertices[i])
-}
-for (const value of test.list) {
-  for (let i = 0; i < vertices.length; i++) {
-    value[1].push(i)
-  }
-}
+test.addVertex(8)
 console.log(test.list)
 // /// Next: Graph traversal algorithms
