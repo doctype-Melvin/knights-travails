@@ -9,11 +9,12 @@ const board = (N) => {
 const a = board(8) // New board of size 8x8
 
 // Factory for cell objects
-const cell = (x, y, dis) => {
+const cell = (x, y, dis, path) => {
   return {
     x,
     y,
     dis,
+    path,
   }
 }
 
@@ -26,7 +27,7 @@ const inbounds = (x, y, N) => {
 }
 
 // Fn returns distance traveled
-const knightMoves = (start, end, N) => {
+const knightMoves = (start, end, N) => { // The N needs to refer to the board size
   // Legal moves in x and y direction
   const dx = [-2, 2, -1, 1, -2, 2, -1, 1]
   const dy = [-1, 1, -2, 2, 1, -1, 2, -2]
@@ -36,7 +37,6 @@ const knightMoves = (start, end, N) => {
 
   // Starting position
   Q.push(cell(start[0], start[1], 0))
-
   // Variables to access first queue element
   let curr
   let x; let y
@@ -53,10 +53,11 @@ const knightMoves = (start, end, N) => {
   // Set starting position as visited
   visited[start[0]][start[1]] = true
 
+  // Add a way to keep track of solution path - backtracking
+
   while (Q.length != 0) {
     // Grab fist element of queue
     curr = Q.shift()
-
     // Check if starting coordinates match target
     if (curr.x === end[0] && curr.y === end[1]) {
       return curr.dis
