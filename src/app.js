@@ -37,13 +37,15 @@ const Graph = (size) => {
   }
 }
 
-const test = Graph(4)
-const vertices = [1, 2, 3, 4]
+const test = Graph(8)
+const vertices = [0, 1, 2, 3, 4, 5, 6, 7]
 for (let i = 0; i < vertices.length; i++) {
   test.addVertex(vertices[i])
 }
-test.addEdge(1, 2)
-test.addEdge(2, 3)
-test.addEdge(3, 4)
-test.printGraph()
+for (const value of test.list) {
+  for (let i = 0; i < vertices.length; i++) {
+    value[1].push(i)
+  }
+}
+console.log(test.list)
 // /// Next: Graph traversal algorithms
