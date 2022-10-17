@@ -44,4 +44,5 @@ const Graph = (size) => {
 const test = Graph(8)
 test.addVertex(8)
 console.log(test.list)
-// /// Next: Graph traversal algorithms
+// /// Next: addEdge method
+
