@@ -16,24 +16,26 @@ const Graph = (size) => {
       }
     }
   }
-  // addEdge(v, w)
-  const addEdge = (v, list) => {
+
+  const addEdge = (list) => {
     let x; let y
-    // v represents the starting position
-    // w represents each legal move
-    // access v's array, push w
-    // access w's array, push v
-    // In other words
     // For each position in the list push all
     // legal moves to the position's array
     for (const key of list) { // Loops through the Map's keys
-      const position = key[0].split(',') // Creates array for each key
-      x = position[0]
-      y = position[1]
-      // list.get(key[0] // accesses the key's value (array)
+      const position = key[0].split(',') // Split coordinate into x and y
+      x = parseInt(position[0])
+      y = parseInt(position[1])
+      for (let i = 0; i < dx.length; i++) { // Loop over one of the move arrays
+        x = x + dx[i]
+        y = y + dy[i]
+        const move = [x, y].toString() // Store the legal move
+        if (list.has(move) && !list.get(key[0]).includes(move)) {
+          // check if move is legal (inbounds) and if it
+          // has not been stored yet
+          list.get(key[1].push(move)) // push legal move to position array
+        }
+      }
     }
-    // list.get(v).push(w)
-    // list.get(w).push(v)
   }
   // printGraph
   const printGraph = () => {
@@ -61,4 +63,5 @@ const dx = [-2, -1, -2, -1, 2, 1, 2, 1]
 const dy = [-1, -2, 1, 2, -1, -2, 1, 2]
 const test = Graph(8)
 test.addVertex(8)
-console.log(test.addEdge(null, test.list))
+console.log(test.list)
+console.log(test.addEdge(test.list))
