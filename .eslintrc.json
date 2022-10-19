@@ -21,6 +21,7 @@
                 "ArrowFunctionExpression": false,
                 "FunctionExpression": false
             }
-        }]
+        }],
+        "guard-for-in": ["off", "never"]
     }
 }

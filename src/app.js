@@ -1,67 +1,86 @@
 import './style.css'
 
-// Graph obj
-
-const Graph = (size) => {
-  const list = new Map()
-
-  // Graph methods
-  // addVertex(v)
-  const addVertex = (size) => {
-    for (let x = 0; x < size; x++) {
-      for (let y = 0; y < size; y++) {
-        // Set keys as a string - get method performs strict equality check
-        // When using arrays, strict equality returns false
-        list.set([x, y].toString(), [])
+const KT = () => {
+  // Create the chessboard
+  const board = [] // Holds cells and adjacency lists
+  const makeBoard = (size) => {
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size; j++) {
+        board.push([[i, j], []]) // coordinates and empty adjacency list
       }
     }
   }
 
-  const addEdge = (list) => {
+  // Define Knight's movements
+  const makeCells = (board, size) => {
     let x; let y
-    // For each position in the list push all
-    // legal moves to the position's array
-    for (const key of list) { // Loops through the Map's keys
-      const position = key[0].split(',') // Split coordinate into x and y
-      x = parseInt(position[0])
-      y = parseInt(position[1])
-      for (let i = 0; i < dx.length; i++) { // Loop over one of the move arrays
-        x = x + dx[i]
-        y = y + dy[i]
-        const move = [x, y].toString() // Store the legal move
-        if (list.has(move) && !list.get(key[0]).includes(move)) {
-          // check if move is legal (inbounds) and if it
-          // has not been stored yet
-          list.get(key[1].push(move)) // push legal move to position array
+    const dx = [-1, 1, -2, 2, -1, 1, -2, 2] // Moves the Knight
+    const dy = [2, 2, 1, 1, -2, -2, -1, -1] // can make along the x and y axis
+
+    for (let i = 0; i < size*size; i++) {
+      const array = board[i][1] // Loop over the adjacency lists of each cell
+      for (let z = 0; z < dx.length; z++) {
+        x = board[i][0][0]
+        y = board[i][0][1]
+        x = x + dx[z]
+        y = y + dy[z]
+        if (x >= 0 && x < size && y >= 0 && y < size) {
+          // Check if move is inbound
+          // If so push to adjacency list
+          array.push([x, y])
         }
       }
     }
   }
-  // printGraph
-  const printGraph = () => {
-    const allKeys = list.keys()
-    for (const i of allKeys) {
-      const allValues = list.get(i)
-      let conc = ''
-      for (const j of allValues) {
-        conc += j + ' '
+
+  const findPath = (board, start, end) => {
+    const known = [] // All visited cells/nodes/vertices
+    const Q = [] // Queue to track discovered nodes
+    const origin = JSON.stringify(start) // Starting position
+    const target = JSON.stringify(end) // Target position
+    const steps = 0
+
+    Q.push(origin)
+
+    while (Q.length > 0) {
+      const current = Q.shift()
+      let adj = null // Store the adjacency list of current cell
+
+      if (current === target) {
+        if (steps > 1) {
+          console.log(`It takes ${steps} steps from ${start} to ${end}`)
+        }
+        console.log(`It takes ${steps} step from ${start} to ${end}`)
+        return
       }
-      console.log(i + ' -> ' + conc)
-    } // end of loop
+      for (const cell of board) {
+        if (JSON.stringify(cell[0]) === current) {
+          adj = cell[1]
+        }
+      } // end of loop
+
+      for (const i in adj) {
+        const move = adj[i]
+        if (JSON.stringify(move) === target) {
+          console.log(known)
+        }
+        if (!known.includes(JSON.stringify(move))) {
+          known.push(JSON.stringify(move))
+          Q.push(JSON.stringify(move))
+        }
+      } // end of loop
+    }
   }
-  // bfs(v)
-  // dfs(v)
+
   return {
-    list,
-    addVertex,
-    addEdge,
-    printGraph,
+    makeBoard,
+    board,
+    makeCells,
+    findPath,
   }
 }
-// Directional moves
-const dx = [-2, -1, -2, -1, 2, 1, 2, 1]
-const dy = [-1, -2, 1, 2, -1, -2, 1, 2]
-const test = Graph(8)
-test.addVertex(8)
-console.log(test.list)
-console.log(test.addEdge(test.list))
+const a = KT()
+a.makeBoard(8)
+a.makeCells(a.board, 8)
+a.findPath(a.board, [0, 0], [3, 3])
+console.log(a.board)
