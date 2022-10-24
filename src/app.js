@@ -35,17 +35,33 @@ const KT = () => {
 
   const findPath = (board, start, end) => {
     const Q = []
+    let steps = 0
     const visited = []
     const target = JSON.stringify(end)
     let adjacency = null
     Q.push(JSON.stringify(start))
+    if (end[0] > 7 || end[0] < 0 || end[1] > 7 || end[1] < 0) {
+      console.log('Out of bounds')
+      return
+    }
     while (Q.length > 0) {
       const current = Q.shift()
-      visited.push(current)
+      if (visited.length >= 0 && !visited.includes(current)) {
+        visited.push(current)
+      }
 
       for (const cell of board) {
         if (JSON.stringify(cell[0]) === current) {
           adjacency = cell[1].map((item) => JSON.stringify(item))
+          if (adjacency.includes(target)) {
+            steps++
+            console.log('Found' + ' ' + target + ' ' + steps + ' ' + 'steps')
+            return
+          }
+          if (!adjacency.includes(target)) { // ???
+            steps++
+            adjacency.map((item) => Q.push(item))
+          }
         }
       }
     }
@@ -61,5 +77,5 @@ const KT = () => {
 const a = KT()
 a.makeBoard(8)
 a.makeCells(a.board, 8)
-a.findPath(a.board, [0, 0], [7, 7])
+a.findPath(a.board, [0, 0], [2, 1])
 console.log(a.board)
