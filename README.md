@@ -5,16 +5,21 @@ You can find the assignment [here](https://www.theodinproject.com/lessons/javasc
 ## Goal
 Find the shortest path between `Start` and `Target`
 
-### Pitfalls
-Strict equality check of Map.prototype.get(): This method performs a strict equality check. 
-I've used arrays to set the keys in my Map. It took me a while until I figured out why I can't
-use `get()` to access my key arrays. Stric equality returns `false` for array comparison. Therefore I had 
-to store the arrays as strings. 
+### Prerequisites
+A `graph` can represent a network and can be used to determin an optimal path between two `vertices`.
+This makes the graph the desired data structure to solve the Knight's travails problem.
+A chessboard will be represented in a `graph` data structure. A `graph` consists of a set of 
+`vertices` which are connected by `edges`. An `edge` is made up of a pair of `vertices`. 
+In this particular case the vertices are the cells of the chessboard. The edges are determined 
+by the legal moves the knight can make.
+[This article](https://jarednielsen.com/data-structure-graph-breadth-first-search/) was very helpful 
+for setting up this project.
 
-#### Resources
-[This video](https://www.youtube.com/watch?v=Y40bRyPQQr0&ab_channel=GeeksforGeeks) from the GeeksForGeeks YT channel
-helped me with tying together the knowledge from previous lessons with the current problem of the Knights Travails.
-It goes over the depth first traversal of a graph.
-[This article](https://www.digitalocean.com/community/tutorials/understanding-map-and-set-objects-in-javascript) explains the `Map()`-object. `Map()` is basically an object that stores key-value pairs in an array-type fashion (indexed list).
-I ended up studying [this solution](https://www.geeksforgeeks.org/minimum-steps-reach-target-knight/?ref=gcse) and rewire 
-it to fit my initial approach.
+### Setup 
+First I've created the two dimensional board using two loops. First loop sets the x coordinate and the
+second sets the y coordinate. Both go into an array. Another empty array is created which will serve as 
+the adjacency list later on. Both elements (coordinates and empty adjacency list) go into an array,
+which itself represents a cell on the board. Essentially this creates the graph data structure. 
+
+Next I've created two arrays (dx & dy) that hold all the possible moves the knight can make. In another loop
+I create the actual edges between the cells. The legal moves now populate the adjacency list of the cell of origin.
