@@ -14,6 +14,7 @@ In this particular case the vertices are the cells of the chessboard. The edges 
 by the legal moves the knight can make.
 [This article](https://jarednielsen.com/data-structure-graph-breadth-first-search/) was very helpful 
 for setting up this project.
+[GfG](https://www.geeksforgeeks.org/implementation-graph-javascript/)
 
 ### Setup 
 First I've created the two dimensional board using two loops. First loop sets the x coordinate and the
@@ -23,3 +24,6 @@ which itself represents a cell on the board. Essentially this creates the graph 
 
 Next I've created two arrays (dx & dy) that hold all the possible moves the knight can make. In another loop
 I create the actual edges between the cells. The legal moves now populate the adjacency list of the cell of origin.
+
+### Outcome
+This was the hardest problem I've worked on so far. 
