@@ -5,31 +5,14 @@ You can find the assignment [here](https://www.theodinproject.com/lessons/javasc
 ## Goal
 Find the shortest path between `Start` and `Target`
 
-## Personal notes
-This project was to me the hardest since (badly) coding the ToDo app a couple months back. 
-In the weeks prior to this project, I went through all the info about 
-Binary Search Trees, breadth-first-search, depth-first-search and level-order-traversal.
-It started off with linked lists, which was not too bad. But going into BST, I felt absolutely overwhelmed.
-Now, Knights Travails to me is another kind of beast. It took me days to comprehend what kind of problems I'd be 
-about to solve - and I'm not too sure if I genuinely did comprehend the scope of this project.
+## Data Structure 
+To solve this problem I've utilized a graph data structure. The graph consists of connected vertices. 
+For the problem at hand, an unweighted and undirected graph is the fitting choice. 
+The edges between vertices (cells on a chessboard) are made up of legal moves the Knight can make.
 
-## Approach
-This time I really needed some extra inspiration. I've resorted to looking up other people's code since
-I couldn't come up with any starting point myself whatsoever. 
+## Algorithm
+The shortest path between `Start` and `Target` positions is found by using a breadth-first-search algorithm.
 
-### The chessboard
-The chessboard where the Knight should move on was the first part I've coded. My intuiton told me
-to use CSS grid for this and of course, one can easily create an 8x8 chessboard with it. 
-The problem I've faced with this approach was, that I couldn't figure out a practical way of
-assigning coordinates to the board's fields. 
-So I had to go back and create the board using a table element. 
-
-#### Origin of the board
-I had to start the loop with a negative integer and turn it into an absolute value later on. This way I could preserve
-the logic of having the board's origin in the lower left hand corner, which translates to the coordinates [0,0].
-
-#### Resources
-[This video](https://www.youtube.com/watch?v=Y40bRyPQQr0&ab_channel=GeeksforGeeks) from the GeeksForGeeks YT channel
-helped me with tying together the knowledge from previous lessons with the current problem of the Knights Travails.
-It goes over the depth first traversal of a graph.
-[This article](https://www.digitalocean.com/community/tutorials/understanding-map-and-set-objects-in-javascript) explains the `Map()`-object. `Map()` is basically an object that stores key-value pairs in an array-type fashion (indexed list).
+### Resources
+[This article](https://aquarchitect.github.io/swift-algorithm-club/Shortest%20Path%20(Unweighted)/) helped
+me with understanding how to track the distance between `Start` and `Target`. 
